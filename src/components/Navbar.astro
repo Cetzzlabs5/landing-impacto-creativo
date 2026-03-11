@@ -1,0 +1,29 @@
+---
+// Navbar.astro
+---
+<nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center transform group-hover:scale-105 transition-transform">
+        <span class="font-bold text-white text-lg">I</span>
+      </div>
+      <span class="font-bold text-xl tracking-tight">Impacto <span class="text-primary-light">Creativo</span></span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#servicios" class="text-sm text-gray-300 hover:text-white transition-colors">Servicios</a>
+      <a href="#resultados" class="text-sm text-gray-300 hover:text-white transition-colors">Casos de Éxito</a>
+      <a href="#agencia" class="text-sm text-gray-300 hover:text-white transition-colors">La Agencia</a>
+      <a href="https://wa.me/543875709771" target="_blank" class="px-5 py-2.5 rounded-full bg-white text-background font-medium text-sm hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300">
+        Hablemos
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle (Simplified for snippet) -->
+    <button class="md:hidden text-white p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>

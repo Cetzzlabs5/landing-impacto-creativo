@@ -1,0 +1,54 @@
+---
+// Footer.astro
+---
+<footer class="bg-surface relative overflow-hidden border-t border-white/10 pt-20 pb-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-background/90 z-0"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <a href="/" class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <span class="font-bold text-white text-lg">I</span>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight">Impacto <span class="text-primary-light">Creativo</span></span>
+                </a>
+                <p class="text-gray-400 max-w-sm mb-8">
+                    Donde las ideas se convierten en impacto. Ayudamos a marcas y negocios a generar un retorno real mediante estrategia y contenido digital.
+                </p>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-white mb-6">Contacto</h3>
+                <ul class="space-y-4 text-gray-400">
+                    <li class="flex items-center gap-2 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="https://wa.me/543875709771" target="_blank">+54 387 5709771</a>
+                    </li>
+                    <li class="flex items-center gap-2 hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:giulianave81@gmail.com">giulianave81@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-white mb-6">Horario & Redes</h3>
+                <p class="text-gray-400 mb-6">Lunes a viernes<br/>9:00 a 21:00</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://instagram.com/impactocreativo.ar" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-accent/20 hover:text-accent transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://tiktok.com/@impactocreativo.ar" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><circle cx="8" cy="18" r="4"/><path d="M12 18V2l7 4"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+            <p>&copy; {new Date().getFullYear()} Impacto Creativo. Todos los derechos reservados.</p>
+            <p>Hecho con <span class="text-accent">♥</span> en el Norte de Argentina</p>
+        </div>
+    </div>
+</footer>

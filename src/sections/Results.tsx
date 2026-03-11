@@ -1,0 +1,193 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowUpRight, Instagram, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const caseStudies = [
+  {
+    name: "Parrillada El Bagual",
+    instagram: "@parrilladaelbagual",
+    url: "https://instagram.com/parrilladaelbagual",
+    description: (
+      <>
+        Comenzamos con <strong>@parrilladaelbagual</strong> cuando tenían
+        aproximadamente <span className="text-cyan-400 font-semibold">1,600 seguidores</span>. Hoy en día la cuenta tiene casi
+        <span className="text-pink-500 font-semibold"> 11,000 seguidores</span> y un notable buen algoritmo en el alcance de
+        cada video.
+      </>
+    ),
+    stats: {
+      inicio: "1.6K",
+      actual: "11K",
+      crecimiento: "+587%"
+    }
+  },
+  {
+    name: "Estética Belleza",
+    instagram: "@esteticabelleza",
+    url: "https://instagram.com/",
+    description: (
+      <>
+        Ayudamos a <strong>@esteticabelleza</strong> a transformar su presencia online. De tener <span className="text-cyan-400 font-semibold">500 seguidores</span> pasamos a
+        <span className="text-pink-500 font-semibold"> 4,200 seguidores</span> con una agenda llena gracias a campañas locales de Meta Ads.
+      </>
+    ),
+    stats: {
+      inicio: "500",
+      actual: "4.2K",
+      crecimiento: "+740%"
+    }
+  },
+  {
+    name: "Inmobiliaria Norte",
+    instagram: "@inmobnorte",
+    url: "https://instagram.com/",
+    description: (
+      <>
+        Para <strong>@inmobnorte</strong>, el desafío era generar contactos calificados. Pasamos de <span className="text-cyan-400 font-semibold">0 consultas mensuales</span> a un promedio de
+        <span className="text-pink-500 font-semibold"> 45 leads mensuales</span> construyendo una comunidad sólida de inversores locales con pauta digital.
+      </>
+    ),
+    stats: {
+      inicio: "0",
+      actual: "45/mes",
+      crecimiento: "Leads"
+    }
+  }
+];
+
+export default function Results() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % caseStudies.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + caseStudies.length) % caseStudies.length);
+  };
+
+  const activeCase = caseStudies[currentIndex];
+
+  return (
+    <section id="resultados" className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] -z-10" />
+
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <motion.h2 
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-4xl md:text-5xl font-bold tracking-tight"
+                >
+                    Resultados
+                </motion.h2>
+                <motion.div 
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    className="h-1 w-24 bg-gradient-to-r from-cyan-400 to-pink-500 mt-4 origin-left"
+                />
+            </div>
+            
+            {/* Carousel Controls */}
+            <div className="flex items-center gap-4">
+                <button 
+                    onClick={prevSlide}
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors bg-surface/50 backdrop-blur-sm"
+                >
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+                <div className="text-gray-400 font-medium tracking-widest text-sm w-12 text-center">
+                    {currentIndex + 1} / {caseStudies.length}
+                </div>
+                <button 
+                    onClick={nextSlide}
+                    className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors bg-surface/50 backdrop-blur-sm"
+                >
+                    <ChevronRight className="w-6 h-6" />
+                </button>
+            </div>
+        </div>
+
+        <div className="relative min-h-[400px]">
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={currentIndex}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                >
+                    {/* Left Column - Details */}
+                    <div className="relative pl-8 my-8 md:my-0">
+                        {/* Gradient Border Line */}
+                        <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-cyan-400 to-pink-500 rounded-full" />
+                        
+                        <div className="flex items-center gap-3 mb-6">
+                            <Instagram className="w-8 h-8 text-white" />
+                            <h3 className="text-3xl font-bold tracking-tight">{activeCase.name}</h3>
+                        </div>
+                        <p className="text-gray-300 text-lg font-light leading-relaxed mb-8">
+                            {activeCase.description}
+                        </p>
+                        <a 
+                            href={activeCase.url} 
+                            target="_blank" 
+                            rel="noreferrer"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-black border border-white/10 text-white hover:bg-white/5 hover:border-white/30 transition-all font-semibold text-sm shadow-xl"
+                        >
+                            Ver Instagram
+                            <ArrowUpRight className="w-4 h-4 text-gray-400" />
+                        </a>
+                    </div>
+
+                    {/* Right Column - Stats Grid matching the image */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        
+                        {/* INICIO */}
+                        <div className="bg-transparent border border-white/20 p-8 flex flex-col justify-center relative overflow-hidden group hover:border-white/40 transition-colors">
+                            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4">
+                                Inicio
+                            </div>
+                            <div className="text-5xl font-black mb-2 tracking-tight text-white">
+                                {activeCase.stats.inicio}
+                            </div>
+                            <div className="h-[3px] w-8 bg-cyan-400 mt-2" />
+                        </div>
+
+                        {/* ACTUAL */}
+                        <div className="bg-transparent border border-white/20 p-8 flex flex-col justify-center relative overflow-hidden group hover:border-white/40 transition-colors">
+                            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4">
+                                Actual
+                            </div>
+                            <div className="text-5xl font-black mb-2 tracking-tight text-white">
+                                {activeCase.stats.actual}
+                            </div>
+                            <div className="h-[3px] w-8 bg-pink-500 mt-2" />
+                        </div>
+
+                        {/* CRECIMIENTO TOTAL */}
+                        <div className="bg-transparent border border-white/20 p-8 sm:col-span-2 flex flex-col justify-center relative overflow-hidden group hover:border-white/40 transition-colors">
+                            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4">
+                                Crecimiento Total
+                            </div>
+                            <div className="text-6xl sm:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500">
+                                {activeCase.stats.crecimiento}
+                            </div>
+                        </div>
+
+                    </div>
+                </motion.div>
+            </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}
