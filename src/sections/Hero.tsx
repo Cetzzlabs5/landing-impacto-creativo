@@ -151,6 +151,8 @@ export default function Hero() {
                             loop
                             muted={isMuted}
                             playsInline
+                            preload="auto"
+                            poster=""
                         />
 
                         {/* Overlay gradient for better button visibility */}
