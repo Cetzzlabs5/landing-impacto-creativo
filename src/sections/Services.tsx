@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { Megaphone, PenTool, Lightbulb, BarChart3, TrendingUp, MonitorPlay } from 'lucide-react';
 

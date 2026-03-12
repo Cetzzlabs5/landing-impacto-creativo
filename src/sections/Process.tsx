@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { Phone, ClipboardList, Lightbulb, Rocket } from 'lucide-react';
 
@@ -8,14 +7,14 @@ const steps = [
     title: 'Reunión',
     description: 'Conocemos tu negocio, objetivos y público objetivo.',
     number: '01',
-    color: '#3B82F6', // Theme primary light
+    color: '#3B82F6',
   },
   {
     icon: ClipboardList,
     title: 'Análisis',
     description: 'Hacemos un análisis profundo de tus necesidades.',
     number: '02',
-    color: '#D946EF', // Theme accent
+    color: '#D946EF', 
   },
   {
     icon: Lightbulb,

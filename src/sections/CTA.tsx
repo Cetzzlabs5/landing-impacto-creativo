@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { Phone, Mail, Instagram, Clock, ArrowRight } from 'lucide-react';
 
