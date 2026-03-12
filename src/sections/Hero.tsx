@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX } from 'lucide-react';
 
 export default function Hero() {
-    const container = {
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
+    };
+
+    const container: any = {
         hidden: { opacity: 0 },
         show: {
             opacity: 1,
@@ -14,7 +24,7 @@ export default function Hero() {
         }
     };
 
-    const item = {
+    const item: any = {
         hidden: { opacity: 0, y: 30 },
         show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
     };
@@ -68,7 +78,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <section className="relative min-h-screen flex border-b border-white/10 items-center py-20 overflow-hidden">
             {/* Background Shapes (Subtle) */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full mix-blend-screen filter blur-[120px] animate-blob" />
@@ -80,16 +90,16 @@ export default function Hero() {
 
                 {/* Left Column: Text Content */}
                 <motion.div
-                    className="text-left"
+                    className="text-left pt-10 md:pt-0"
                     variants={container}
                     initial="hidden"
                     animate="show"
                 >
-                    <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 text-primary-light mb-8 bg-primary/5">
-                        <span className="text-xs font-bold tracking-widest uppercase">Digital Marketing Agency</span>
+                    <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 text-primary-light mb-8 bg-primary/5 shadow-[0_0_15px_rgba(37,99,235,0.1)]">
+                        <span className="text-xs font-bold tracking-widest uppercase">Agencia de Marketing Digital</span>
                     </motion.div>
 
-                    <motion.h1 variants={item} className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight mb-6 leading-[1.05]">
+                    <motion.h1 variants={item} className="text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tight mb-4 sm:mb-6 leading-none sm:leading-[1.05]">
                         Ideas que <br />
                         generan <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent text-glow">
@@ -97,7 +107,7 @@ export default function Hero() {
                         </span>
                     </motion.h1>
 
-                    <motion.p variants={item} className="text-lg text-gray-400 mb-10 max-w-md font-light leading-relaxed">
+                    <motion.p variants={item} className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-10 max-w-md font-light leading-relaxed">
                         Tu marca con una presencia real y un retorno de inversión optimizado. Transformamos audiencias en clientes leales.
                     </motion.p>
 
@@ -119,65 +129,44 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
 
-                {/* Right Column: Animated Graphic */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="hidden lg:flex justify-end items-center relative h-[500px] w-full"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="relative max-w-[350px] mx-auto rounded-3xl overflow-hidden glass-panel shadow-2xl group cursor-pointer"
+                    onClick={toggleMute}
                 >
-                    {/* The SVG curve mimicking an upward growth chart */}
-                    <div className="relative w-full h-full max-w-[500px]">
-                        <svg viewBox="0 0 400 300" className="w-full h-full absolute inset-0 overflow-visible">
-                            {/* Subtle grid lines for the chart background */}
-                            <line x1="0" y1="250" x2="400" y2="250" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                            <line x1="0" y1="150" x2="400" y2="150" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-                            <line x1="0" y1="50" x2="400" y2="50" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+                    <div className="aspect-[9/16] w-full bg-surface/50 relative">
+                        {/* Fallback/Loading state */}
+                        <div className="absolute inset-0 flex items-center justify-center -z-10">
+                            <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+                        </div>
 
-                            {/* The Animated Line */}
-                            <motion.path
-                                d="M 20 250 Q 250 250, 360 40"
-                                fill="transparent"
-                                stroke="url(#lineGradient)"
-                                strokeWidth="4"
-                                strokeLinecap="round"
-                                variants={pathVariants}
-                                initial="hidden"
-                                animate="show"
-                                style={{ filter: 'drop-shadow(0px 0px 8px rgba(37, 99, 235, 0.5))' }}
-                            />
+                        <video
+                            ref={videoRef}
+                            className="w-full h-full object-cover"
+                            src="/video-testimonio.mp4"
+                            autoPlay
+                            loop
+                            muted={isMuted}
+                            playsInline
+                        />
 
-                            {/* Gradient Definition */}
-                            <defs>
-                                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#3B82F6" /> {/* Primary Light */}
-                                    <stop offset="100%" stopColor="#D946EF" /> {/* Pink/Fuchsia Accent */}
-                                </linearGradient>
-                            </defs>
+                        {/* Overlay gradient for better button visibility */}
+                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
-                            {/* End Dot */}
-                            <motion.circle
-                                cx="360"
-                                cy="40"
-                                r="6"
-                                fill="#D946EF"
-                                variants={dotVariants}
-                                initial="hidden"
-                                animate="show"
-                                style={{ filter: 'drop-shadow(0px 0px 10px rgba(217, 70, 239, 0.8))' }}
-                            />
-                        </svg>
-
-                        {/* Floating Tooltip at the end of the line */}
-                        <motion.div
-                            variants={tooltipVariants}
-                            initial="hidden"
-                            animate="show"
-                            className="absolute top-[80px] right-[-20px] bg-surface border border-white/10 rounded-xl p-4 shadow-2xl backdrop-blur-md z-20"
+                        {/* Mute/Unmute Toggle Button */}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                toggleMute();
+                            }}
+                            className="absolute bottom-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-colors border border-white/10"
+                            aria-label={isMuted ? "Activar sonido" : "Silenciar"}
                         >
-                            <div className="text-[10px] text-gray-400 font-medium uppercase tracking-widest mb-1">ROI Mensual</div>
-                            <div className="text-2xl font-black text-primary-light">+240%</div>
-                        </motion.div>
+                            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                        </button>
                     </div>
                 </motion.div>
 

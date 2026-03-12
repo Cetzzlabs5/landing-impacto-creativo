@@ -1,24 +1,24 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../sections/Hero';
-import About from '../sections/About';
-import Services from '../sections/Services';
-import Results from '../sections/Results';
-import Process from '../sections/Process';
-import Testimonials from '../sections/Testimonials';
-import CTA from '../sections/CTA';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../sections/Hero";
+import About from "../sections/About";
+import Services from "../sections/Services";
+import Results from "../sections/Results";
+import Process from "../sections/Process";
+import Testimonials from "../sections/Testimonials";
+import CTA from "../sections/CTA";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Impacto Creativo | Agencia de Marketing Digital">
-	<Hero client:load />
+    <Hero client:load />
     <About client:visible />
     <Services client:visible />
-    <Results client:visible />
     <Process client:visible />
+    <!-- <Testimonials client:visible /> -->
+    <Results client:visible />
     {/* Instagram embeds need manual client-side rendering or static HTML */}
-    <Testimonials client:visible />
     <CTA client:visible />
 </Layout>

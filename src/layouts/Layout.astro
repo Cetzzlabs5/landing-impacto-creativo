@@ -1,17 +1,21 @@
 ---
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/800.css';
+import "../styles/global.css";
+import Navbar from "../components/NavbarReact";
+import Footer from "../components/Footer.astro";
+import FloatingCTA from "../components/FloatingCTA";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/800.css";
 
 interface Props {
 	title: string;
-    description?: string;
+	description?: string;
 }
 
-const { title, description = "Impacto Creativo - Agencia de Marketing Digital" } = Astro.props;
+const {
+	title,
+	description = "Impacto Creativo - Agencia de Marketing Digital",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -20,20 +24,20 @@ const { title, description = "Impacto Creativo - Agencia de Marketing Digital" }
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-        <!-- Open Graph / Social Media Meta Tags -->
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
+		<!-- Open Graph / Social Media Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
 	</head>
-	<body class="bg-background text-white min-h-screen flex flex-col">
-        <Navbar />
+	<body class="bg-background text-white min-h-screen flex flex-col relative">
+		<Navbar client:load />
 		<main class="flex-grow">
 			<slot />
 		</main>
-        <Footer />
+		<Footer />
+		<FloatingCTA client:idle />
 	</body>
 </html>

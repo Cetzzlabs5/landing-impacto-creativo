@@ -7,43 +7,43 @@ const services = [
     title: "Manejo de Redes Sociales",
     description: "Estrategia integral, creación de contenido, optimización de alcance y campañas en Meta Ads.",
     icon: <MonitorPlay className="w-8 h-8 text-primary-light" />,
-    gradient: "from-primary to-blue-500",
+    gradient: "from-primary/20 to-accent/20",
     featured: true
   },
   {
     title: "Estrategia Digital",
     description: "Análisis de tu negocio para diseñar la hoja de ruta exacta que multiplicará tus resultados.",
     icon: <Lightbulb className="w-8 h-8 text-accent" />,
-    gradient: "from-accent to-pink-500"
+    gradient: "from-accent/20 to-primary/20"
   },
   {
     title: "Creación de Contenido",
     description: "Videos, gráficas y copys diseñados específicamente para retener la atención y convertir.",
-    icon: <PenTool className="w-8 h-8 text-purple-400" />,
-    gradient: "from-purple-500 to-indigo-500"
+    icon: <PenTool className="w-8 h-8 text-white" />,
+    gradient: "from-white/10 to-primary/20"
   },
   {
     title: "Campañas Publicitarias",
     description: "Anuncios optimizados en Facebook e Instagram Ads para llevar tráfico cualificado a tu perfil o web.",
-    icon: <Megaphone className="w-8 h-8 text-orange-400" />,
-    gradient: "from-orange-500 to-red-500"
+    icon: <Megaphone className="w-8 h-8 text-primary-light" />,
+    gradient: "from-primary/20 to-transparent"
   },
   {
     title: "Branding para Redes",
     description: "Identidad visual coherente que transmita profesionalismo y conecte con tu cliente ideal.",
-    icon: <TrendingUp className="w-8 h-8 text-emerald-400" />,
-    gradient: "from-emerald-500 to-teal-500"
+    icon: <TrendingUp className="w-8 h-8 text-accent" />,
+    gradient: "from-accent/20 to-transparent"
   },
   {
     title: "Asesorías 1 a 1",
     description: "Para marcas que gestionan sus propias redes pero necesitan guía experta y claridad estratégica.",
-    icon: <BarChart3 className="w-8 h-8 text-cyan-400" />,
-    gradient: "from-cyan-500 to-blue-500"
+    icon: <BarChart3 className="w-8 h-8 text-white" />,
+    gradient: "from-white/10 to-transparent"
   }
 ];
 
 export default function Services() {
-  const containerVariants = {
+  const containerVariants: any = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -51,7 +51,7 @@ export default function Services() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: any = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
   };
@@ -74,7 +74,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
           >
             Creatividad que <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-pink-500">convierte.</span>
           </motion.h2>
@@ -82,7 +82,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-gray-400 max-w-2xl mx-auto text-lg font-light"
+            className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg font-light"
           >
             Soluciones integrales diseñadas para que tu marca destaque, conecte y venda en el entorno digital.
           </motion.p>
@@ -93,36 +93,38 @@ export default function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] border border-white/10 rounded-[2rem] overflow-hidden"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.2 }}
-              className="relative group p-8 lg:p-10 flex flex-col h-full"
+              className="relative group p-8 lg:p-10 flex flex-col h-full glass-panel rounded-3xl overflow-hidden hover:border-white/30 transition-all shadow-xl"
             >
               {/* Hover Gradient Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-              {service.featured && (
-                <div className="absolute top-4 right-4 py-1 px-3 bg-white/10 text-[10px] font-bold rounded-full tracking-wider uppercase text-white shadow-sm border border-white/5">
-                  Principal
-                </div>
-              )}
+              <div className="relative z-10 flex flex-col h-full">
+                  {service.featured && (
+                    <div className="absolute -top-2 -right-2 py-1 px-3 bg-white/10 text-[10px] font-bold rounded-full tracking-wider uppercase text-white shadow-sm border border-white/5 backdrop-blur-md">
+                      Principal
+                    </div>
+                  )}
 
-              <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 origin-left inline-block">
-                {service.icon}
+                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 origin-left inline-block">
+                    {service.icon}
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-3 text-white">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
+                    {service.description}
+                  </p>
               </div>
-
-              <h3 className="text-xl font-bold mb-3 text-white">
-                {service.title}
-              </h3>
-
-              <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed">
-                {service.description}
-              </p>
             </motion.div>
           ))}
         </motion.div>

@@ -41,7 +41,7 @@ export default function Testimonials() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="relative max-w-[350px] mx-auto rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-2xl group cursor-pointer"
+                className="relative max-w-[350px] mx-auto rounded-3xl overflow-hidden glass-panel shadow-2xl group cursor-pointer"
                 onClick={toggleMute}
             >
                 <div className="aspect-[9/16] w-full bg-surface/50 relative">
