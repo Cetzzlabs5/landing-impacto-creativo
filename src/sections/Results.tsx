@@ -22,37 +22,37 @@ const caseStudies = [
     }
   },
   {
-    name: "Estética Belleza",
-    instagram: "@esteticabelleza",
-    url: "https://instagram.com/",
+    name: "Muebles de Algarrobo",
+    instagram: "@alejandroalgarrobo1015",
+    url: "https://www.instagram.com/alejandroalgarrobo1015/",
     description: (
       <>
-        Ayudamos a <strong>@esteticabelleza</strong> a transformar su presencia online. De tener <span className="text-primary-light font-semibold">500 seguidores</span> pasamos a
-        <span className="text-accent font-semibold"> 4,200 seguidores</span> con una agenda llena gracias a campañas locales de Meta Ads.
+        Ayudamos a <strong>@alejandroalgarrobo1015</strong> a transformar su presencia online. De tener <span className="text-primary-light font-semibold">100 seguidores</span> 
+        <span className="text-accent font-semibold"> 550 seguidores </span> en tan solo 5 meses logrando más consultas y ventas.
       </>
     ),
     stats: {
-      inicio: "500",
-      actual: "4.2K",
-      crecimiento: "+740%"
+      inicio: "100",
+      actual: "550",
+      crecimiento: "+450%"
     }
   },
-  {
-    name: "Inmobiliaria Norte",
-    instagram: "@inmobnorte",
-    url: "https://instagram.com/",
-    description: (
-      <>
-        Para <strong>@inmobnorte</strong>, el desafío era generar contactos calificados. Pasamos de <span className="text-primary-light font-semibold">0 consultas mensuales</span> a un promedio de
-        <span className="text-accent font-semibold"> 45 leads mensuales</span> construyendo una comunidad sólida de inversores locales con pauta digital.
-      </>
-    ),
-    stats: {
-      inicio: "0",
-      actual: "45/mes",
-      crecimiento: "Leads"
-    }
-  }
+  // {
+  //   name: "Inmobiliaria Norte",
+  //   instagram: "@inmobnorte",
+  //   url: "https://instagram.com/",
+  //   description: (
+  //     <>
+  //       Para <strong>@inmobnorte</strong>, el desafío era generar contactos calificados. Pasamos de <span className="text-primary-light font-semibold">0 consultas mensuales</span> a un promedio de
+  //       <span className="text-accent font-semibold"> 45 leads mensuales</span> construyendo una comunidad sólida de inversores locales con pauta digital.
+  //     </>
+  //   ),
+  //   stats: {
+  //     inicio: "0",
+  //     actual: "45/mes",
+  //     crecimiento: "Leads"
+  //   }
+  // }
 ];
 
 export default function Results() {
