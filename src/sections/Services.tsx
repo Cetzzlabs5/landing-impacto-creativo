@@ -28,8 +28,8 @@ const services = [
     gradient: "from-primary/20 to-transparent"
   },
   {
-    title: "Soluciones Digitales",
-    description: "Desde Landing Pages estratégicas hasta plataformas robustas, creadas a la medida de tu marca.",
+    title: "Diseño y desarrollo web",
+    description: "Creamos páginas web atractivas, tiendas online y sistemas web a medida para que tu marca crezca en internet.",
     icon: <Code2 className="w-8 h-8 text-accent" />,
     gradient: "from-accent/20 to-transparent"
   },
