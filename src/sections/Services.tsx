@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Megaphone, PenTool, Lightbulb, BarChart3, TrendingUp, MonitorPlay } from 'lucide-react';
+import { Megaphone, PenTool, Lightbulb, BarChart3, TrendingUp, MonitorPlay, Code2 } from 'lucide-react';
 
 const services = [
   {
@@ -28,9 +28,9 @@ const services = [
     gradient: "from-primary/20 to-transparent"
   },
   {
-    title: "Branding para Redes",
-    description: "Identidad visual coherente que transmita profesionalismo y conecte con tu cliente ideal.",
-    icon: <TrendingUp className="w-8 h-8 text-accent" />,
+    title: "Soluciones Digitales",
+    description: "Desde Landing Pages estratégicas hasta plataformas robustas, creadas a la medida de tu marca.",
+    icon: <Code2 className="w-8 h-8 text-accent" />,
     gradient: "from-accent/20 to-transparent"
   },
   {
@@ -106,23 +106,23 @@ export default function Services() {
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
               <div className="relative z-10 flex flex-col h-full">
-                  {service.featured && (
-                    <div className="absolute -top-2 -right-2 py-1 px-3 bg-white/10 text-[10px] font-bold rounded-full tracking-wider uppercase text-white shadow-sm border border-white/5 backdrop-blur-md">
-                      Principal
-                    </div>
-                  )}
-
-                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 origin-left inline-block">
-                    {service.icon}
+                {service.featured && (
+                  <div className="absolute -top-2 -right-2 py-1 px-3 bg-white/10 text-[10px] font-bold rounded-full tracking-wider uppercase text-white shadow-sm border border-white/5 backdrop-blur-md">
+                    Principal
                   </div>
+                )}
 
-                  <h3 className="text-xl font-bold mb-3 text-white">
-                    {service.title}
-                  </h3>
+                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300 origin-left inline-block">
+                  {service.icon}
+                </div>
 
-                  <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
-                    {service.description}
-                  </p>
+                <h3 className="text-xl font-bold mb-3 text-white">
+                  {service.title}
+                </h3>
+
+                <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
+                  {service.description}
+                </p>
               </div>
             </motion.div>
           ))}

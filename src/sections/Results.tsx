@@ -20,23 +20,7 @@ const caseStudies = [
       actual: "11K",
       crecimiento: "+587%"
     }
-  },
-  {
-    name: "Muebles de Algarrobo",
-    instagram: "@alejandroalgarrobo1015",
-    url: "https://www.instagram.com/alejandroalgarrobo1015/",
-    description: (
-      <>
-        Ayudamos a <strong>@alejandroalgarrobo1015</strong> a transformar su presencia online. De tener <span className="text-primary-light font-semibold">100 seguidores</span> 
-        <span className="text-accent font-semibold"> 550 seguidores </span> en tan solo 5 meses logrando más consultas y ventas.
-      </>
-    ),
-    stats: {
-      inicio: "100",
-      actual: "550",
-      crecimiento: "+450%"
-    }
-  },
+  }
   // {
   //   name: "Inmobiliaria Norte",
   //   instagram: "@inmobnorte",

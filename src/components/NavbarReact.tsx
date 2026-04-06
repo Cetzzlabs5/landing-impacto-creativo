@@ -38,17 +38,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled || isOpen ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-lg' : 'bg-transparent border-b border-transparent'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-lg' : 'bg-transparent border-b border-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        
+
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 group relative z-50" onClick={handleLinkClick}>
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center transform group-hover:scale-105 transition-transform shadow-lg">
-            <span className="font-bold text-white text-lg">I</span>
-          </div>
+          <img src="/logo.webp" alt="" className="w-10 h-10" />
           <span className="font-bold text-xl tracking-tight text-white group-hover:text-gray-200 transition-colors">
             Impacto <span className="text-primary-light">Creativo</span>
           </span>
@@ -78,7 +75,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden relative z-50 p-2 text-white hover:text-primary-light transition-colors focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
@@ -133,13 +130,13 @@ export default function Navbar() {
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.a>
             </div>
-            
-            <motion.div 
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               exit={{ opacity: 0 }}
-               transition={{ delay: 0.5, duration: 0.4 }}
-               className="mt-auto text-center text-gray-500 text-sm"
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+              className="mt-auto text-center text-gray-500 text-sm"
             >
               Impacto Creativo &copy; {new Date().getFullYear()}
             </motion.div>
