@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export default function About() {
   return (
-    <section id="agencia" className="py-24 relative overflow-hidden bg-background text-white">
+    <section id="agencia" className="py-20 lg:py-28 relative overflow-hidden bg-background text-white">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
@@ -14,9 +14,9 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="flex flex-col"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">Nosotros</h2>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white">Nosotros</h2>
             {/* Gradient Line */}
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mb-8 sm:mb-10 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mb-10 md:mb-16 rounded-full"></div>
 
             <div className="space-y-6 sm:space-y-8 text-gray-300 text-base sm:text-lg font-light leading-relaxed">
               {/* Paragraph 1 with left border */}
@@ -46,7 +46,7 @@ export default function About() {
           >
 
             {/* Filosofía Card */}
-            <div className="glass-panel border border-white/10 rounded-3xl p-8 relative overflow-hidden group">
+            <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">

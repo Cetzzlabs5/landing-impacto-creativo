@@ -34,19 +34,19 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="proceso" className="py-24 bg-background relative overflow-hidden">
+    <section id="proceso" className="py-20 lg:py-28 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 sm:mb-20"
+          className=""
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white">
             Proceso
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-10 md:mb-16" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-12">
@@ -68,7 +68,7 @@ export default function Process() {
               </div>
 
               {/* Card */}
-              <div className="relative h-full glass-panel border border-white/10 rounded-3xl p-8 hover:border-white/30 transition-all duration-300 overflow-hidden">
+              <div className="relative h-full glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 overflow-hidden shadow-xl">
                 {/* Subtle background glow on hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-[0.05] transition-opacity duration-500"

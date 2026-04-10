@@ -56,7 +56,7 @@ export default function Services() {
   };
 
   return (
-    <section id="servicios" className="py-32 relative">
+    <section id="servicios" className="py-20 lg:py-28 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/30 to-background pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -73,10 +73,11 @@ export default function Services() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white"
           >
             Creatividad que <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-pink-500">convierte.</span>
           </motion.h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-10 md:mb-16"></div>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -100,7 +101,7 @@ export default function Services() {
               variants={itemVariants}
               whileHover={{ scale: 1.02, y: -5 }}
               transition={{ duration: 0.2 }}
-              className="relative group p-8 lg:p-10 flex flex-col h-full glass-panel rounded-3xl overflow-hidden hover:border-white/30 transition-all shadow-xl"
+              className="relative group p-8 flex flex-col h-full glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl overflow-hidden shadow-xl"
             >
               {/* Hover Gradient Effect */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

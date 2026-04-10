@@ -3,7 +3,7 @@ import { Phone, Mail, Instagram, Clock, ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section id="contacto" className="py-24 relative overflow-hidden">
+    <section id="contacto" className="py-20 lg:py-28 relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-[400px] bg-primary/20 blur-[150px] rounded-full pointer-events-none" />
@@ -14,12 +14,12 @@ export default function CTA() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className=""
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white">
             Contacto
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full" />
+          <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mb-10 md:mb-16" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
@@ -33,7 +33,7 @@ export default function CTA() {
             className="flex flex-col gap-4"
           >
             {/* WhatsApp */}
-            <a href="https://wa.me/543875709771" target="_blank" rel="noreferrer" className="glass-panel rounded-2xl p-6 flex items-center gap-6 group hover:border-white/30 transition-all">
+            <a href="https://wa.me/543875709771" target="_blank" rel="noreferrer" className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-6 flex items-center gap-6 group shadow-xl">
               <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center bg-surface group-hover:bg-white/5 transition-colors">
                 <Phone className="w-5 h-5 text-gray-300" />
               </div>
@@ -44,7 +44,7 @@ export default function CTA() {
             </a>
 
             {/* Email */}
-            <a href="mailto:giulianave81@gmail.com" className="glass-panel rounded-2xl p-6 flex items-center gap-6 group hover:border-white/30 transition-all">
+            <a href="mailto:giulianave81@gmail.com" className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-6 flex items-center gap-6 group shadow-xl">
               <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center bg-surface group-hover:bg-white/5 transition-colors">
                 <Mail className="w-5 h-5 text-gray-300" />
               </div>
@@ -55,7 +55,7 @@ export default function CTA() {
             </a>
 
             {/* Instagram */}
-            <a href="https://instagram.com/impactocreativo.ar" target="_blank" rel="noreferrer" className="glass-panel rounded-2xl p-6 flex items-center gap-6 group hover:border-white/30 transition-all">
+            <a href="https://instagram.com/impactocreativo.ar" target="_blank" rel="noreferrer" className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-6 flex items-center gap-6 group shadow-xl">
               <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center bg-surface group-hover:bg-white/5 transition-colors">
                 <Instagram className="w-5 h-5 text-gray-300" />
               </div>
@@ -66,7 +66,7 @@ export default function CTA() {
             </a>
 
             {/* Bottom Row inside left column: Horarios */}
-            <div className="glass-panel rounded-2xl p-6 relative overflow-hidden group hover:border-white/30 transition-all mt-4">
+            <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-6 relative overflow-hidden group shadow-xl">
               {/* Gradient left border accent */}
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
 
@@ -87,7 +87,7 @@ export default function CTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="h-full"
           >
-            <div className="glass-panel border-white/20 rounded-[2rem] p-8 md:p-14 h-full flex flex-col justify-center relative overflow-hidden group">
+            <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 md:p-14 h-full flex flex-col justify-center relative overflow-hidden group shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-50" />
 
               <div className="relative z-10">

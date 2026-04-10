@@ -1,82 +1,103 @@
-import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Star } from 'lucide-react';
+
+const testimonials = [
+    {
+        name: "Sofía Martínez",
+        role: "Dueña de Restaurante",
+        image: "https://i.pravatar.cc/150?u=sofia",
+        text: "Impacto Creativo transformó nuestras redes. Pasamos de estar estancados a triplicar nuestras reservas en solo 2 meses. El equipo es de otro nivel."
+    },
+    {
+        name: "Carlos Ramírez",
+        role: "Director de E-commerce",
+        image: "https://i.pravatar.cc/150?u=carlos",
+        text: "Su estrategia de contenido es brillante. No solo crecimos en seguidores, sino que realmente empezamos a vender a través de Instagram de forma consistente."
+    },
+    {
+        name: "Andrea Vargas",
+        role: "CEO de Clínica Estética",
+        image: "https://i.pravatar.cc/150?u=andrea",
+        text: "Profesionales, creativos y enfocados en resultados. Entendieron exactamente el tono visual y el impacto que nuestra marca necesitaba transmitir."
+    }
+];
+
+const container: any = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15
+        }
+    }
+};
+
+const item: any = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
 
 export default function Testimonials() {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+    return (
+        <section id="testimonios" className="py-20 lg:py-28 relative overflow-hidden border-b border-white/5">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="text-center mb-16 lg:mb-24"
+                >
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white">
+                        Lo que dicen <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">nuestros clientes</span>
+                    </h2>
+                    <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-10 md:mb-16 mx-auto" />
+                </motion.div>
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-        videoRef.current.muted = !isMuted;
-        setIsMuted(!isMuted);
-    }
-  };
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
+                    {testimonials.map((testimonial, idx) => (
+                        <motion.div
+                            key={idx}
+                            variants={item}
+                            className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col relative group shadow-xl"
+                        >
+                            {/* Stars */}
+                            <div className="flex items-center gap-1 mb-6">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                                ))}
+                            </div>
 
-  return (
-    <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-background pointer-events-none" />
-        
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <motion.h2 
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-bold tracking-tight mb-6"
-            >
-                Lo que dicen de nosotros
-            </motion.h2>
-            <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-gray-400 text-lg mb-12"
-            >
-                El impacto real contado por las marcas que ya trabajan con nuestro equipo.
-            </motion.p>
-            
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="relative max-w-[350px] mx-auto rounded-3xl overflow-hidden glass-panel shadow-2xl group cursor-pointer"
-                onClick={toggleMute}
-            >
-                <div className="aspect-[9/16] w-full bg-surface/50 relative">
-                    {/* Fallback/Loading state */}
-                    <div className="absolute inset-0 flex items-center justify-center -z-10">
-                        <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-                    </div>
-                    
-                    <video 
-                        ref={videoRef}
-                        className="w-full h-full object-cover"
-                        src="/video-testimonio.mp4" 
-                        autoPlay
-                        loop
-                        muted={isMuted}
-                        playsInline
-                    />
+                            {/* Text */}
+                            <p className="text-gray-300 text-lg sm:text-xl font-light leading-relaxed mb-10 flex-grow">
+                                "{testimonial.text}"
+                            </p>
 
-                    {/* Overlay gradient for better button visibility */}
-                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-
-                    {/* Mute/Unmute Toggle Button */}
-                    <button 
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            toggleMute();
-                        }}
-                        className="absolute bottom-4 right-4 p-3 rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 transition-colors border border-white/10"
-                        aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-                    >
-                        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                    </button>
-                </div>
-            </motion.div>
-        </div>
-    </section>
-  );
+                            {/* Author */}
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="relative">
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-50 blur group-hover:opacity-100 transition-opacity" />
+                                    <img
+                                        src={testimonial.image}
+                                        alt={testimonial.name}
+                                        className="w-14 h-14 rounded-full object-cover relative z-10 border border-white/10"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-lg">{testimonial.name}</h4>
+                                    <p className="text-primary-light text-sm">{testimonial.role}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    );
 }

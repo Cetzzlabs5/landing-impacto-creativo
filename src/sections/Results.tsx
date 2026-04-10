@@ -53,18 +53,18 @@ export default function Results() {
   const activeCase = caseStudies[currentIndex];
 
   return (
-    <section id="resultados" className="py-24 relative overflow-hidden">
+    <section id="resultados" className="py-20 lg:py-28 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] -z-10" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12 sm:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+        <div className="sm:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
           <div>
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-white"
             >
               Resultados
             </motion.h2>
@@ -72,7 +72,7 @@ export default function Results() {
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
-              className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full mt-4 origin-left"
+              className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full origin-left"
             />
           </div>
 
@@ -133,7 +133,7 @@ export default function Results() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
                 {/* INICIO */}
-                <div className="glass-panel rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-white/30 transition-all shadow-xl">
+                <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group shadow-xl">
                   <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4 relative z-10">
                     Inicio
@@ -145,7 +145,7 @@ export default function Results() {
                 </div>
 
                 {/* ACTUAL */}
-                <div className="glass-panel rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group hover:border-white/30 transition-all shadow-xl">
+                <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden group shadow-xl">
                   <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4 relative z-10">
                     Actual
@@ -157,7 +157,7 @@ export default function Results() {
                 </div>
 
                 {/* CRECIMIENTO TOTAL */}
-                <div className="glass-panel rounded-3xl p-8 sm:col-span-2 flex flex-col justify-center relative overflow-hidden group hover:border-white/30 transition-all shadow-xl">
+                <div className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 sm:col-span-2 flex flex-col justify-center relative overflow-hidden group shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="text-xs text-gray-400 uppercase tracking-widest font-medium mb-4 relative z-10">
                     Crecimiento Total
