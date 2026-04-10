@@ -6,36 +6,38 @@ const testimonials = [
         name: "Sofía Martínez",
         role: "Dueña de Restaurante",
         image: "https://i.pravatar.cc/150?u=sofia",
+        rating: 5,
         text: "Impacto Creativo transformó nuestras redes. Pasamos de estar estancados a triplicar nuestras reservas en solo 2 meses. El equipo es de otro nivel."
     },
     {
         name: "Carlos Ramírez",
         role: "Director de E-commerce",
         image: "https://i.pravatar.cc/150?u=carlos",
+        rating: 5,
         text: "Su estrategia de contenido es brillante. No solo crecimos en seguidores, sino que realmente empezamos a vender a través de Instagram de forma consistente."
     },
     {
         name: "Andrea Vargas",
         role: "CEO de Clínica Estética",
         image: "https://i.pravatar.cc/150?u=andrea",
+        rating: 4,
         text: "Profesionales, creativos y enfocados en resultados. Entendieron exactamente el tono visual y el impacto que nuestra marca necesitaba transmitir."
+    },
+    {
+        name: "Julieta Gónzalez",
+        role: "Fundadora de Tienda Online",
+        image: "https://i.pravatar.cc/150?u=julieta",
+        rating: 5,
+        text: "El diseño publicitario que armaron fue espectacular. Gracias a sus campañas duplicamos nuestras consultas y ventas web en semanas."
+    },
+    {
+        name: "Marcos Del Puerto",
+        role: "Gerente de Inmobiliaria",
+        image: "https://i.pravatar.cc/150?u=marcos",
+        rating: 4,
+        text: "Un equipo súper comprometido e innovador. Nos adaptamos rápidamente a la estrategia y ahora generamos prospectos de mucha mayor calidad."
     }
 ];
-
-const container: any = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.15
-        }
-    }
-};
-
-const item: any = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
-};
 
 export default function Testimonials() {
     return (
@@ -54,35 +56,36 @@ export default function Testimonials() {
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-10 md:mb-16 mx-auto" />
                 </motion.div>
 
+            <div className="relative flex overflow-hidden py-4 group">
+                {/* Fade edges */}
+                <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
                 <motion.div
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    animate={{ x: ["0%", "-100%"] }}
+                    transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+                    className="flex gap-6 md:gap-8 shrink-0 min-w-full pl-6 md:pl-8"
                 >
                     {testimonials.map((testimonial, idx) => (
-                        <motion.div
-                            key={idx}
-                            variants={item}
-                            className="glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col relative group shadow-xl"
+                        <div
+                            key={`first-${idx}`}
+                            className="w-[300px] sm:w-[350px] lg:w-[420px] shrink-0 glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col relative shadow-xl"
                         >
                             {/* Stars */}
                             <div className="flex items-center gap-1 mb-6">
                                 {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                                    <Star key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'fill-accent text-accent' : 'fill-transparent text-gray-700'}`} />
                                 ))}
                             </div>
 
                             {/* Text */}
-                            <p className="text-gray-300 text-lg sm:text-xl font-light leading-relaxed mb-10 flex-grow">
+                            <p className="text-gray-300 text-lg sm:text-xl font-light leading-relaxed mb-10 flex-grow whitespace-normal">
                                 "{testimonial.text}"
                             </p>
 
                             {/* Author */}
                             <div className="flex items-center gap-4 mt-auto">
                                 <div className="relative">
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-50 blur group-hover:opacity-100 transition-opacity" />
                                     <img
                                         src={testimonial.image}
                                         alt={testimonial.name}
@@ -94,9 +97,50 @@ export default function Testimonials() {
                                     <p className="text-primary-light text-sm">{testimonial.role}</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </motion.div>
+
+                <motion.div
+                    animate={{ x: ["0%", "-100%"] }}
+                    transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+                    className="flex gap-6 md:gap-8 shrink-0 min-w-full pl-6 md:pl-8"
+                >
+                    {testimonials.map((testimonial, idx) => (
+                        <div
+                            key={`second-${idx}`}
+                            className="w-[300px] sm:w-[350px] lg:w-[420px] shrink-0 glass-panel border border-white/10 hover:border-primary/30 transition-colors duration-500 rounded-3xl p-8 flex flex-col relative shadow-xl"
+                        >
+                            {/* Stars */}
+                            <div className="flex items-center gap-1 mb-6">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'fill-accent text-accent' : 'fill-transparent text-gray-700'}`} />
+                                ))}
+                            </div>
+
+                            {/* Text */}
+                            <p className="text-gray-300 text-lg sm:text-xl font-light leading-relaxed mb-10 flex-grow whitespace-normal">
+                                "{testimonial.text}"
+                            </p>
+
+                            {/* Author */}
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="relative">
+                                    <img
+                                        src={testimonial.image}
+                                        alt={testimonial.name}
+                                        className="w-14 h-14 rounded-full object-cover relative z-10 border border-white/10"
+                                    />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold text-lg">{testimonial.name}</h4>
+                                    <p className="text-primary-light text-sm">{testimonial.role}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
             </div>
         </section>
     );
