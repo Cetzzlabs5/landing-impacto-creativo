@@ -1,9 +1,10 @@
 import { motion } from 'motion/react';
-import { Megaphone, PenTool, Lightbulb, BarChart3, TrendingUp, MonitorPlay, Code2 } from 'lucide-react';
+import { Megaphone, PenTool, Lightbulb, BarChart3, MonitorPlay, Code2, ArrowRight } from 'lucide-react';
 
 const services = [
   {
     title: "Manejo de Redes Sociales",
+    ctaService: "Manejo de redes sociales",
     description: "Estrategia integral, creación de contenido, optimización de alcance y campañas en Meta Ads.",
     icon: <MonitorPlay className="w-8 h-8 text-primary-light" />,
     gradient: "from-primary/20 to-accent/20",
@@ -11,35 +12,52 @@ const services = [
   },
   {
     title: "Estrategia Digital",
+    ctaService: "Estrategia digital",
     description: "Análisis de tu negocio para diseñar la hoja de ruta exacta que multiplicará tus resultados.",
     icon: <Lightbulb className="w-8 h-8 text-accent" />,
     gradient: "from-accent/20 to-primary/20"
   },
   {
     title: "Creación de Contenido",
+    ctaService: "Creación de contenido",
     description: "Videos, gráficas y copys diseñados específicamente para retener la atención y convertir.",
     icon: <PenTool className="w-8 h-8 text-white" />,
     gradient: "from-white/10 to-primary/20"
   },
   {
     title: "Campañas Publicitarias",
+    ctaService: "Campañas publicitarias",
     description: "Anuncios optimizados en Facebook e Instagram Ads para llevar tráfico cualificado a tu perfil o web.",
     icon: <Megaphone className="w-8 h-8 text-primary-light" />,
     gradient: "from-primary/20 to-transparent"
   },
   {
-    title: "Diseño y desarrollo web",
+    title: "Diseño y Desarrollo Web",
+    ctaService: "Diseño y desarrollo web",
     description: "Creamos páginas web atractivas, tiendas online y sistemas web a medida para que tu marca crezca en internet.",
     icon: <Code2 className="w-8 h-8 text-accent" />,
     gradient: "from-accent/20 to-transparent"
   },
   {
     title: "Asesorías 1 a 1",
+    ctaService: "Asesoría 1 a 1",
     description: "Para marcas que gestionan sus propias redes pero necesitan guía experta y claridad estratégica.",
     icon: <BarChart3 className="w-8 h-8 text-white" />,
     gradient: "from-white/10 to-transparent"
   }
 ];
+
+function handleContratarClick(ctaService: string) {
+  // Dispatch custom event so CTAForm pre-selects the service
+  window.dispatchEvent(new CustomEvent('selectService', { detail: ctaService }));
+
+  // Smooth scroll to the contact section
+  const section = document.getElementById('contacto');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 
 export default function Services() {
   const containerVariants: any = {
@@ -121,9 +139,18 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed group-hover:text-gray-200 transition-colors">
+                <p className="text-gray-400 flex-grow font-light text-sm leading-relaxed group-hover:text-gray-200 transition-colors mb-6">
                   {service.description}
                 </p>
+
+                {/* CTA Button */}
+                <button
+                  onClick={() => handleContratarClick(service.ctaService)}
+                  className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary-light hover:text-white transition-colors duration-200 group/btn cursor-pointer"
+                >
+                  <span>Contratar servicio</span>
+                  <ArrowRight className="w-4 h-4 translate-x-0 group-hover/btn:translate-x-1 transition-transform duration-200" />
+                </button>
               </div>
             </motion.div>
           ))}
